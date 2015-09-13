@@ -1,0 +1,78 @@
+package com.grobster.work;
+
+import java.util.*;
+
+public class CalendarStringCreator { //some code duplication.  I might rework this class.
+	public static String createSixDigitYearMonthDay() {
+		Calendar cal = Calendar.getInstance(); // create instance of Calendar
+		
+		int month = cal.get(Calendar.MONTH) + 1; // calendar months are 0 based but need to be 1 based
+		String monthString; // converts month integer to String
+		
+		switch (month) { // months must be represented using 2 digits
+			case 1: monthString = "01";
+					break;
+			case 2: monthString = "02";
+					break;
+			case 3: monthString = "03";
+					break;
+			case 4: monthString = "04";
+					break;
+			case 5: monthString = "05";
+					break;
+			case 6: monthString = "06";
+					break;
+			case 7: monthString = "07";
+					break;
+			case 8: monthString = "08";
+					break;
+			case 9: monthString = "09";
+					break;
+			default: monthString = String.valueOf(month);
+					break;
+		}
+		
+		String yearString = String.valueOf(cal.get(Calendar.YEAR)).substring(2); // get last 2 digits of year
+		
+		int day = cal.get(Calendar.DAY_OF_MONTH);
+		
+		String dayString;
+		
+		switch (day) { // days must be represented using 2 digits
+			case 1: dayString = "01";
+					break;
+			case 2: dayString = "02";
+					break;
+			case 3: dayString = "03";
+					break;
+			case 4: dayString = "04";
+					break;
+			case 5: dayString = "05";
+					break;
+			case 6: dayString = "06";
+					break;
+			case 7: dayString = "07";
+					break;
+			case 8: dayString = "08";
+					break;
+			case 9: dayString = "09";
+					break;
+			default: dayString = String.valueOf(day);
+					break;
+		}
+		
+		StringBuilder auto = new StringBuilder();
+		auto.append(yearString);
+		auto.append(monthString);
+		auto.append(dayString);
+		
+		 System.out.println(auto.toString());
+		
+		return auto.toString();
+		
+	}
+	
+	public static void main(String[] args) {
+		CalendarStringCreator.createSixDigitYearMonthDay();
+	}
+}
