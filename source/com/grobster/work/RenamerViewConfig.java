@@ -148,7 +148,14 @@ public class RenamerViewConfig implements FileRenamerObserver {
 		
 		//test
 		
+		pathLabel.setText("Add Entry to Configuration File");
+		updatePathLabelFromConfigFile();
 		
+		
+		//test
+	}
+	
+	public void updatePathLabelFromConfigFile() {
 		String companyString = companyCombo.getSelectedItem().toString();
 		String selectedPath = hm.get(companyString);
 		renamer.setBaseFolderName(selectedPath);
@@ -156,9 +163,6 @@ public class RenamerViewConfig implements FileRenamerObserver {
 			renamer.setAutoFolderName();
 			updatePathLabel();
 		}
-		
-		
-		//test
 	}
 	
 	public void disableComponents() {
@@ -220,13 +224,7 @@ public class RenamerViewConfig implements FileRenamerObserver {
 	
 	class CompanyComboListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			String companyString = companyCombo.getSelectedItem().toString();
-			String selectedPath = hm.get(companyString);
-			renamer.setBaseFolderName(selectedPath);
-			if (modeCombo.getSelectedItem().toString().equals("Auto")) {
-				renamer.setAutoFolderName();
-				updatePathLabel();
-			}
+			updatePathLabelFromConfigFile();
 		}
 	}
 	
