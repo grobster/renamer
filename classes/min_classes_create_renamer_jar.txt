@@ -1,0 +1,12 @@
+jar -cvmf manifest.txt "Photo
+Renamer v11.1.8.jar" com/grobster/work/CalendarStringCreator.class com\grobster\
+work\FileNameRecorder2.class com\grobster\work\FileNameRecorderInterface.class c
+om\grobster\work\FileRenamerAllPhotos.class com\grobster\work\FileRenamerInterfa
+ce.class com\grobster\work\Observer.class com\grobster\work\FileRenamerPath.clas
+s com\grobster\work\FileRenamerRevised.class com\grobster\work\FileRenamerTestDr
+ive99.class com\grobster\work\FolderNameShortener.class com\grobster\work\Rename
+rViewConfig$CompanyComboListener.class com\grobster\work\RenamerViewConfig$ModeC
+omboListener.class com\grobster\work\RenamerViewConfig$RenameButtonListener.clas
+s com\grobster\work\RenamerViewConfig$SetButtonListener.class com\grobster\work\
+RenamerViewConfig.class com\grobster\work\TwoDigitNumberCreator.class com\grobst
+er\work\FileRenamerObserver.class

@@ -23,7 +23,7 @@ import java.nio.charset.*;
 import java.io.*;
 
 /*
- * @version 11.1.7c
+ * @version 11.1.8c - widened the width of the application
  * @author Jeffery Quarles
  */
 
@@ -86,7 +86,7 @@ public class RenamerViewConfig implements FileRenamerObserver {
 		setButton = new JButton("Set");
 		setButton.setEnabled(false);
 		setButton.addActionListener(new SetButtonListener());
-		folderField = new JTextField(5);
+		folderField = new JTextField(10);
 		folderField.setEditable(false);
 		folderNameLabel = new JLabel("Folder Name:");
 		folderNameLabel.setFont(new Font("Sans-Serif", Font.BOLD, 14));
@@ -116,7 +116,7 @@ public class RenamerViewConfig implements FileRenamerObserver {
 		
 		dummyButton = new JButton("Rename");
 		dummyButton.addActionListener(new RenameButtonListener());
-		frame = new JFrame("Photo Renamer v11.1.7");
+		frame = new JFrame("Photo Renamer v11.1.8");
 		dummyPanel = new JPanel();
 		dummyPanel.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
 		dummyPanel.add(dummyButton);
@@ -140,7 +140,7 @@ public class RenamerViewConfig implements FileRenamerObserver {
 		frame.getContentPane().add(BorderLayout.NORTH, pathPanel);
 		frame.getContentPane().add(BorderLayout.EAST, mainPanel);
 		frame.getRootPane().setDefaultButton(dummyButton);
-		frame.setSize(600, 300);
+		frame.setSize(700, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
 		frame.setResizable(false);
