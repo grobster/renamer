@@ -48,7 +48,6 @@ public class RenamerViewConfig2 implements FileRenamerObserver {
 	private JPanel inputPanel;
 	private JLabel folderNameLabel;
 	private JTextField folderField;
-	private JButton setButton;
 	private JPanel numberFilesRenamedPanel;
 	private JLabel numberFilesRenamedLabel;
 	private FileRenamerInterface renamer;
@@ -86,17 +85,14 @@ public class RenamerViewConfig2 implements FileRenamerObserver {
 		
 		numberFilesRenamedPanel = new JPanel();
 		numberFilesRenamedPanel.add(numberFilesRenamedLabel);
-		setButton = new JButton("Set");
-		setButton.setEnabled(false);
-		setButton.addActionListener(new SetButtonListener());
 		folderField = new JTextField(10);
+		folderField.addKeyListener(new FolderFieldListener());
 		folderField.setEditable(false);
 		folderNameLabel = new JLabel("Folder Name:");
 		folderNameLabel.setFont(new Font("Sans-Serif", Font.BOLD, 14));
 		inputPanel = new JPanel();
 		inputPanel.add(folderNameLabel);
 		inputPanel.add(folderField);
-		inputPanel.add(setButton);
 		modeLabel = new JLabel("Mode:");
 		modeLabel.setFont(new Font("Sans-Serif", Font.BOLD, 14));
 		modeCombo = new JComboBox<String>(modes);
@@ -169,7 +165,6 @@ public class RenamerViewConfig2 implements FileRenamerObserver {
 	}
 	
 	public void disableComponents() {
-		setButton.setEnabled(false);
 		folderField.setEnabled(false);
 	}
 	
@@ -242,14 +237,12 @@ public class RenamerViewConfig2 implements FileRenamerObserver {
 				companyCombo.setEnabled(true);
 				folderField.setText("");
 				folderField.setEditable(false);
-				setButton.setEnabled(false);
 				renamer.setAutoFolderName();
 				updatePathLabel();
 			} else if (modeCombo.getSelectedItem().toString().equals("Other")) {
 				companyCombo.setEnabled(false);
 				folderField.setText("");
 				folderField.setEditable(false);
-				setButton.setEnabled(false);
 				try {
 					String otherPath = JOptionPane.showInputDialog(null, "Enter Path");
 					renamer.setFullDirectoryPath(otherPath);
@@ -262,15 +255,26 @@ public class RenamerViewConfig2 implements FileRenamerObserver {
 				folderField.setEditable(true);
 				companyCombo.setEnabled(true);
 				folderField.requestFocus();
-				setButton.setEnabled(true);
 			}
 		}
 	}
 	
-	class SetButtonListener implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
-			renamer.setManualFolderName(folderField.getText().trim());
-			updatePathLabel();
+	private void manualFolderEvent() {
+		renamer.setManualFolderName(folderField.getText().trim());
+		updatePathLabel();
+	}
+	
+	class FolderFieldListener implements KeyListener {
+		public void keyPressed(KeyEvent e) {
+			manualFolderEvent();
+		}
+		
+		public void keyReleased(KeyEvent e) {
+			manualFolderEvent();
+		}
+		
+		public void keyTyped(KeyEvent e) {
+			manualFolderEvent();
 		}
 	}
 	
