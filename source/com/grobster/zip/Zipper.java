@@ -82,7 +82,6 @@ public class Zipper {
 			String fileTimeString = Files.getLastModifiedTime(filePath).toString(); //convert time to a string
 			String[] splitTimeDate = fileTimeString.split("T"); //split the date/time string on the letter T
 			String dateOnly = splitTimeDate[0]; // take the first part of the split to get only the date
-			System.out.println("date only: " + dateOnly); //debugging take out later
 			String[] dateSplitHyphen = dateOnly.split("-"); //split the date on the hyphen to year, month, and day individually
 			year = Integer.parseInt(dateSplitHyphen[0]);
 			month = Integer.parseInt(dateSplitHyphen[1]);
@@ -100,7 +99,6 @@ public class Zipper {
 		if (daysAgoCreatedInt > threshold) {
 			return true;
 		}
-		System.out.println("here test");
 		return false;
 	}
 	
