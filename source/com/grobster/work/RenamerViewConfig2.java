@@ -24,7 +24,7 @@ import java.io.*;
 import com.grobster.zip.*;
 
 /*
- * @version 11.2.0 - added the ability to compress files older than 180 days
+ * @version 11.2.0 - added the ability to compress files older than 180 days / removed setButton
  * @version 11.1.8c - widened the width of the application
  * @author Jeffery Quarles
  */
@@ -85,8 +85,9 @@ public class RenamerViewConfig2 implements FileRenamerObserver {
 		
 		numberFilesRenamedPanel = new JPanel();
 		numberFilesRenamedPanel.add(numberFilesRenamedLabel);
-		folderField = new JTextField(10);
+		folderField = new JTextField(12);
 		folderField.addKeyListener(new FolderFieldListener());
+		folderField.setHorizontalAlignment(JTextField.CENTER);
 		folderField.setEditable(false);
 		folderNameLabel = new JLabel("Folder Name:");
 		folderNameLabel.setFont(new Font("Sans-Serif", Font.BOLD, 14));
@@ -106,6 +107,7 @@ public class RenamerViewConfig2 implements FileRenamerObserver {
 		mainPanel = new JPanel();
 		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 		area = new JTextArea(10, 30);
+		area.setMargin(new Insets(2, 10, 2, 10));
 		westPanel = new JPanel();
 		westPanel.setLayout(new BoxLayout(westPanel, BoxLayout.Y_AXIS));
 		scroller = new JScrollPane(area);
